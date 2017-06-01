@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Transmmit;
+use App\Product;
+use App\Category;
 
-class TransmmitController extends Controller
+class ProductController extends Controller
 {
+    
     /**
      * Create a new controller instance.
      *
@@ -27,9 +29,9 @@ class TransmmitController extends Controller
      */
     public function index()
     {
-        $transmmits = Transmmit::all();
+        $products = Product::all();
         //dd($transmmits::all());
-        return view('transmit.index', compact('transmmits'));
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -39,7 +41,9 @@ class TransmmitController extends Controller
      */
     public function create()
     {
-        return view('transmit.new');
+        $categories = Category::all();
+        //dd($categories->all());
+        return view('products.new', compact('categories'));
     }
 
     /**
@@ -48,10 +52,15 @@ class TransmmitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\StoreTransmitPostRequest $request)
+    public function store(Requests\StoreProductPostRequest $request)
     {
-        $transmit = Transmmit::create($request->all());
-        return redirect()->action('TransmmitController@index');
+        $data = [
+            'stock' => 0,
+            ];
+
+        //dd($request->all());
+        $product = Product::create(array_merge($request->all(), $data));
+        return redirect()->action('ProductController@index');
     }
 
     /**

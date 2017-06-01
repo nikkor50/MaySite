@@ -7,7 +7,7 @@
         
          <div class="jumbotron">
         <h2>  Transmit Code
-            <a class="btn btn-lg btn-primary pull-right" href="#" role="button">
+            <a class="btn btn-lg btn-primary pull-right" href="/transmmits/create" role="button">
                 Add New</a>
         </h2>
     </div>

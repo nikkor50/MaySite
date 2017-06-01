@@ -7,7 +7,7 @@
         
          <div class="jumbotron">
         <h2> Category 
-            <a class="btn btn-lg btn-primary pull-right" href="#" role="button">
+            <a class="btn btn-lg btn-primary pull-right" href="/categories/create" role="button">
                 Add New</a>
         </h2>
     </div>

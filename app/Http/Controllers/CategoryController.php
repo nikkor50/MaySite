@@ -40,7 +40,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.new');
     }
 
     /**
@@ -49,9 +49,10 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\StoreCategoryPostRequest $request)
     {
-        //
+        $category = Category::create($request->all());
+        return redirect()->action('CategoryController@index');
     }
 
     /**

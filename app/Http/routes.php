@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index');
 Route::resource('transmmits', 'TransmmitController');
 
 Route::resource('categories', 'CategoryController');
+
+Route::resource('products', 'ProductController');
