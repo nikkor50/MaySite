@@ -96,6 +96,9 @@ class TransmmitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tran = Transmmit::find($id);
+        $tran->delete();
+
+		return redirect()->action('TransmmitController@index');
     }
 }

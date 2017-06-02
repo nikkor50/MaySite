@@ -58,8 +58,8 @@ class ProductController extends Controller
             'stock' => 0,
             ];
 
-        //dd($request->all());
-        $product = Product::create(array_merge($request->all(), $data));
+        dd($request->all());
+        //$product = Product::create(array_merge($request->all(), $data));
         return redirect()->action('ProductController@index');
     }
 
