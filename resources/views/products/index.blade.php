@@ -22,6 +22,8 @@
                 <th>MFG</th>
                 <th>Specific</th>
                 <th>Stock</th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             
@@ -36,6 +38,22 @@
                         <td> {{ $product->mfg }} </td>
                         <td> {{ $product->specific }} </td>
                         <td> {{ $product->stock }} </td>
+                        
+                            <td>
+                                <form action="{{ URL('/products/'.$product->id) }}" method="POST" style="display: inline;">
+                                  <input name="_method" type="hidden" value="PATCH">
+                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                  <button type="submit" class="btn btn-link align-right">Update</button>
+                                </form>
+                            </td>                        
+                        
+                            <td>
+                                <form action="{{ URL('/products/'.$product->id) }}" method="POST" style="display: inline;">
+                                  <input name="_method" type="hidden" value="DELETE">
+                                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                  <button type="submit" class="btn btn-link align-right">Delete</button>
+                                </form>
+                            </td>
                     </tr>
                 @endforeach
             </tbody>

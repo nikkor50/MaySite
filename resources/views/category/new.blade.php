@@ -1,4 +1,53 @@
-@extends('layouts.app')
+@extends('layouts.metro')
+
+@section('hero')
+    <div class="row center">
+      <div class="span12">
+        <h2>Category Maintain Page</h2>
+        <p>You can Add/Delete/Update category data at this page.</p>
+        <hr />
+      </div>  
+    </div>
+@endsection
+
+@section('newcontent')
+
+<div class="row">
+
+<div class="span12">
+<div class="lrform">
+<h5>Add Category Item</h5>
+  <div class="form">
+      <!-- form -->
+      <form class="form-horizontal" role="form" method="POST" action="{{ url('/categories') }}">
+        {{ csrf_field() }}
+            
+          <!-- description -->
+            <div class="control-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                <label for="description" class="control-label"> Description</label>
+                <div class="controls">
+                  <input type="text" class="input-large" id="description" name="description"/>
+                    @if ($errors->has('description'))
+                        <span class="help-block red">
+                            {{ $errors->first('description') }}
+                        </span>
+                    @endif              
+                </div>
+            </div>
+                                                                             
+          <!-- Buttons -->
+          <div class="form-actions">
+             <!-- Buttons -->
+            <button type="submit" class="btn btn-primary">submit</button>
+            <button type="reset" class="btn">Reset</button>
+          </div>
+      </form>
+
+    </div> 
+  </div>
+
+@endsection
+
 
 @section('content')
 <div class="container">
@@ -31,6 +80,8 @@
                                 </button>
                             </div>
                         </div>
+                        
+            
                     </form>
                 </div>
             </div>

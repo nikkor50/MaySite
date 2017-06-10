@@ -41,7 +41,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::lists('description', 'id');
         //dd($categories->all());
         return view('products.new', compact('categories'));
     }
@@ -54,12 +54,9 @@ class ProductController extends Controller
      */
     public function store(Requests\StoreProductPostRequest $request)
     {
-        $data = [
-            'stock' => 0,
-            ];
 
-        dd($request->all());
-        //$product = Product::create(array_merge($request->all(), $data));
+        //dd($request->all());
+        $product = Product::create($request->all());
         return redirect()->action('ProductController@index');
     }
 

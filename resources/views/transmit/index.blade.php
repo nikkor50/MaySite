@@ -1,4 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.metro')
+
+
+@section('hero')
+    <div class="row center">
+      <div class="span12">
+
+        <div class="bor"></div>
+
+        <h2>Transmit Maintain Page</h2>
+        <p>You can Add/Delete/Update tranmit and location data at this page.</p>
+        <a class="btn btn-lg btn-primary pull-right" href="{{ URL('/categories/create') }}" role="button">
+                Add New</a>
+        <div class="bor"></div>
+        <hr />
+      </div>  
+    </div>
+
+@endsection
+
+
 
 @section('content')
 
@@ -33,7 +53,7 @@
                                 <form action="{{ URL('/transmmits/'.$transmmit->id) }}" method="POST" style="display: inline;">
                                   <input name="_method" type="hidden" value="DELETE">
                                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                  <button type="submit" class="btn btn-danger">Delete</button>
+                                  <button type="submit" class="btn btn-link">Delete</button>
                                 </form>
                             </td>                        
                         </tr>

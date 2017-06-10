@@ -1,4 +1,66 @@
-@extends('layouts.app')
+@extends('layouts.metro')
+
+@section('login')
+
+<div class="register">
+<div class="row">
+
+<div class="span12">
+<div class="lrform">
+<h5>Login to your Account</h5>
+  <div class="form">
+      <!-- Login form -->
+      <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+            {{ csrf_field() }}
+            
+          <!-- email -->
+          <div class="control-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <label class="control-label" for="email">E-Mail</label>
+            <div class="controls">
+              <input type="text" class="input-large" id="email" name="email" value="{{ old('email') }}"/>
+                @if ($errors->has('email'))
+                    <span class="help-block red">
+                        {{ $errors->first('email') }}
+                    </span>
+                @endif              
+            </div>
+          </div>
+          <!-- Password -->
+          <div class="control-group{{ $errors->has('password') ? ' has-error' : '' }}">
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+              <input type="password" class="input-large" id="password" name="password" />
+                @if ($errors->has('password'))
+                    <span class="help-block red">
+                        {{ $errors->first('password') }}
+                    </span>
+                @endif
+            </div>
+          </div>
+          
+          <div class="control-group">
+             <div class="controls">
+                <label class="checkbox">
+                <input type="checkbox" name="remember"/> Remember me
+                </label>
+             </div>
+          </div>                                                                               
+          <!-- Buttons -->
+          <div class="form-actions">
+             <!-- Buttons -->
+            <button type="submit" class="btn">Login</button>
+            <button type="reset" class="btn">Reset</button>
+            <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+          </div>
+      </form>
+             Don't have Account? <a href="register.html">Register</a>
+    </div> 
+  </div>
+
+</div>
+
+
+@endsection
 
 @section('content')
 <div class="container">
@@ -17,8 +79,8 @@
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                    <span class="help-block red">
+                                        {{ $errors->first('email') }}
                                     </span>
                                 @endif
                             </div>
@@ -31,8 +93,8 @@
                                 <input id="password" type="password" class="form-control" name="password">
 
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                    <span class="help-block red">
+                                        {{ $errors->first('password') }}
                                     </span>
                                 @endif
                             </div>

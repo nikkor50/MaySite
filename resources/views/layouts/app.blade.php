@@ -49,14 +49,30 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
+                
+
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/transmmits') }}">Transmit</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Maintainance <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{ url('/categories') }}">Category</a></li>
+                        <li><a href="{{ url('/transmmits') }}">Transmit Location</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">stock header </li>
+                        <li><a href="{{ url('/products') }}">Product & Stock</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                
+                
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/purchases') }}">Purchase</a></li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/categories') }}">Category</a></li>
+                    <li><a href="{{ url('/home') }}">Sales</a></li>
                 </ul>
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/products') }}">Product</a></li>
+                    <li><a href="{{ url('/products') }}">Report</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
